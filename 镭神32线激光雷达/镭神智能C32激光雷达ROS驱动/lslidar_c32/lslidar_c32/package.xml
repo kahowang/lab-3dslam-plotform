@@ -1,0 +1,24 @@
+<package>
+
+  <name>lslidar_c32</name>
+  <version>1.2.0</version>
+  <description>
+    Basic ROS support for the Leishen C32 LIDARs.
+  </description>
+
+  <url>http://www.ros.org/wiki/lslidar_c32</url>
+  <maintainer email="yutongyan@lslidar.com">Yutong</maintainer>
+  <author>Yutong</author>
+  <license>GNU General Public License V3.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>lslidar_c32_driver</run_depend>
+  <run_depend>lslidar_c32_msgs</run_depend>
+  <run_depend>lslidar_c32_decoder</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+
+</package>

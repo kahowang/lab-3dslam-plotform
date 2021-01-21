@@ -1,0 +1,60 @@
+<launch>
+  <node pkg="lslidar_c32_driver" type="lslidar_c32_driver_node" name="lslidar_c32_driver_node" output="screen" ns="LeftLidar">
+    <param name="device_ip" value="192.168.1.206" />
+    <param name="msop_port" value="2380" />
+    <param name="difop_port" value="2381"/>
+    <param name="frame_id" value="laser_link"/>
+    <param name="add_multicast" value="false"/>
+    <param name="group_ip" value="224.1.1.2"/>
+    <param name="rpm" value="600"/>
+    <param name="return_mode" value="1"/>
+    <param name="degree_mode" value="2"/>
+    <param name="time_synchronization" value="true"/>
+  </node>
+
+  <node pkg="lslidar_c32_decoder" type="lslidar_c32_decoder_node" name="lslidar_c32_decoder_node" output="screen" ns="LeftLidar" >
+    <param name="min_range" value="0.15"/>
+    <param name="max_range" value="150.0"/>
+    <param name="degree_mode" value="2"/>
+    <param name="distance_unit" value="0.25"/>
+    <param name="return_mode" value="1"/>
+    <param name="config_vert" value="true"/>
+    <param name="print_vert" value="false"/>
+    <param name="scan_frame_id" value="laser_link"/>
+    <param name="scan_num" value="15"/>
+    <param name="publish_scan" value="true"/>
+    <param name="time_synchronization" value="true"/>
+  </node>
+  
+  
+  <node pkg="lslidar_c32_driver" type="lslidar_c32_driver_node" name="lslidar_c32_driver_node" output="screen" ns="RightLidar">
+    <param name="device_ip" value="192.168.1.201" />
+    <param name="msop_port" value="2370" />
+    <param name="difop_port" value="2371"/>
+    <param name="frame_id" value="laser_link"/>
+    <param name="add_multicast" value="false"/>
+    <param name="group_ip" value="224.1.1.2"/>
+    <param name="rpm" value="600"/>
+    <param name="return_mode" value="1"/>
+    <param name="degree_mode" value="2"/>
+    <param name="time_synchronization" value="true"/>
+  </node>
+
+  <node pkg="lslidar_c32_decoder" type="lslidar_c32_decoder_node" name="lslidar_c32_decoder_node" output="screen" ns="RightLidar">
+    <param name="min_range" value="0.15"/>
+    <param name="max_range" value="150.0"/>
+    <param name="degree_mode" value="2"/>
+    <param name="distance_unit" value="0.25"/>
+    <param name="return_mode" value="1"/>
+    <param name="config_vert" value="true"/>
+    <param name="print_vert" value="false"/>
+    <param name="scan_frame_id" value="laser_link"/>
+    <param name="scan_num" value="15"/>
+    <param name="publish_scan" value="true"/>
+    <param name="time_synchronization" value="true"/>
+  </node>
+
+  //<node pkg="tf" type="static_transform_publisher" name="base_link2laser" args="0 0 0 0 0 0 world laser_link_right 100" />
+  //<node pkg="tf" type="static_transform_publisher" name="base_link2laser2" args="0 0 10 0 0 0 world laser_link_left 100" />
+</launch>
+

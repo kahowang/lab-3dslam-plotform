@@ -1,0 +1,9 @@
+<library path="lib/liblslidar_c32_decoder_nodelet">
+  <class name="lslidar_c32_decoder/LslidarC32DecoderNodelet"
+         type="lslidar_c32_decoder::LslidarC32DecoderNodelet"
+         base_class_type="nodelet::Nodelet">
+    <description>
+      Aggregates points from multiple packets, publishing PointCloud2.
+    </description>
+  </class>
+</library>
