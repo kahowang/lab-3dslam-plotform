@@ -1,0 +1,8 @@
+KERNEL=="ttyACM*", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", MODE:="0777", SYMLINK+="jackal"
+
+# Udev rule for the PS4 controller
+KERNEL=="js*", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="07dc", SYMLINK="input/ps4"
+KERNEL=="js*", ATTRS{idVendor}=="8087", ATTRS{idProduct}=="0aaa", SYMLINK="input/ps4"
+
+# Alternate Udev rule for the PS4 controller (if it's detected as DualShock 4)
+KERNEL=="js*", ATTRS{idVendor}=="054C", ATTRS{idProduct}=="05C4", SYMLINK="input/ps4"
