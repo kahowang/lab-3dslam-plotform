@@ -1,0 +1,4 @@
+<launch>
+    <include file="$(find axis_camera)/launch/axis.launch" />
+    <include file="$(find axis_camera)/launch/image_view.launch" />
+</launch>

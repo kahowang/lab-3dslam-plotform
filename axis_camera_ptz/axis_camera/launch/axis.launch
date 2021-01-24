@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="ptz_enabled" default="true"/>
+	<arg name="run_republish" default="true"/>
+	<arg name="joy_contral_enabled" default="true"/>
+
+	<param name="hostname" value="192.168.80.1"/>
+	<param name="username" value="iqr" />
+	<param name="password" value="123" />
+	<param name="frame_id" value="axis_camera"/>
+
+	<param name="enable_joint" value="True"/>
+	<param name="ptz_pub_rate" value="10"/>
+	<param name="pan_joint" value="AXIS_P5635E_yaw_joint"/>
+	<param name="tilt_joint" value="AXIS_P5635E_pitch_joint"/>
+
+	<!-- axis camera p5635-e image pulish -->
+	<node pkg="axis_camera" type="axis_node.py" name="axis_camera" output="screen"/>
+	<!-- axis camera p5635-e ptz control ros node -->
+	<group if="$(arg ptz_enabled)">
+		<node pkg="axis_camera" type="axis_ptz_node.py" name="axis_ptz" output="screen"/>
+	</group>
+	<!-- using joy control axis camera ptz -->
+	<group if="$(arg joy_contral_enabled)">
+		<include file="$(find iqr_teleop)/launch/joy_teleop.launch" />
+	</group>
+	<!-- Republishes from Compressed to raw -->
+	<node pkg="image_transport" type="republish" name="axis_camera_republisher" output="screen" args="compressed in:= raw out:=image_raw" if="$(arg run_republish)"/>
+	<!-- IMAGE PROC: Republish image topics by using camera info -->
+	<node pkg="image_proc" type="image_proc" name="axis_camera_image_proc" output="screen" if="$(arg run_republish)"/>
+</launch>
+

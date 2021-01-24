@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="image" default="/axis_camera/image_raw/compressed"/>
+	<node pkg="image_view" type="image_view" name="image_view" output="screen" args="image:=$(arg image)">
+	</node>
+	
+</launch>
+
