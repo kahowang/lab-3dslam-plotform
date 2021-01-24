@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+  <node pkg="iqr_teleop" type="iqr_teleop_joy" name="iqr_teleop_joystick">
+    <param name="safe_nutton" value="4"/>
+    <param name="axis_pan" value="3"/>
+    <param name="axis_tilt" value="4"/>
+    <remap from="iqr_teleop_joystick/joy" to="bluetooth_teleop/joy"/>
+    <remap from="iqr_teleop_joystick/axis_ptz_cmd" to="axis_ptz_cmd"/>
+  </node>
+</launch>
