@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="lslidar_c32_driver" type="lslidar_c32_driver_node" name="lslidar_c32_driver" >
+        <param name="frame_id" value="lslidar"/>
+        <param name="device_ip" value="192.168.1.200"/>
+    </node>
+
+</launch>

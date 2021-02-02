@@ -1,0 +1,47 @@
+<package>
+
+  <name>lslidar_c32_decoder</name>
+  <version>1.0.0</version>
+  <description>
+    Point cloud conversions for Leishen C32 LIDARs.
+  </description>
+  <url>http://www.ros.org/wiki/lslidar_c32</url>
+  <maintainer email="yutong@lslidar.com">Yutong</maintainer>
+  <author>Yutong</author>
+  <license>GNC General Public License V3.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>angles</build_depend>
+  <build_depend>nodelet</build_depend>
+  <build_depend>pcl_conversions</build_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>lslidar_c32_driver</build_depend>
+  <build_depend>lslidar_c32_msgs</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+
+  <!-- these build dependencies are only needed for unit testing -->
+  <build_depend>tf2_ros</build_depend>
+
+  <run_depend>angles</run_depend>
+  <run_depend>nodelet</run_depend>
+  <run_depend>pcl_ros</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>pcl_conversions</run_depend>
+  <!-- <run_depend>python-yaml</run_depend> -->
+  <run_depend>roscpp</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>lslidar_c32_driver</run_depend>
+  <run_depend>lslidar_c32_msgs</run_depend>
+  <!-- <run_depend>yaml-cpp</run_depend> -->
+  <run_depend>dynamic_reconfigure</run_depend>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelets.xml"/>
+  </export>
+</package>
